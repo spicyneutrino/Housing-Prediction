@@ -63,6 +63,11 @@ The application uses a **LightGBM Regressor**, selected after training and evalu
     ```
     Open your browser and go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
+## Demo
+Below is a demo of the Flask application in action:
+
+![Flask App Demo](https://raw.githubusercontent.com/spicyneutrino/Housing-Prediction/refs/heads/main/HousingPricePrediction.gif)
+
 ## Deployment
 This project is suitable for deployment on **Heroku**.
 
