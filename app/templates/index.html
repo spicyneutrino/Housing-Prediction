@@ -1,114 +1,116 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p>Predict Housing Price</p>
+<h2>Predict Housing Price</h2>
 
-<form action="" method="POST">
-    {{ form.hidden_tag() }}
+<div class="form-container">
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
 
-    <p>
-        {{ form.area.label }}<br>
-        {{ form.area(size=32) }}
-        {% for error in form.area.errors %}
+        <p>
+            {{ form.area.label }}<br>
+            {{ form.area(size=32) }}
+            {% for error in form.area.errors %}
+            <span style="color:red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.bedrooms.label }}<br>
+            {{ form.bedrooms(size=32) }}
+            {% for error in form.bedrooms.errors %}
+            <span style="color:red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.bathrooms.label }}<br>
+            {{ form.bathrooms(size=32) }}
+            {% for error in form.bathrooms.errors %}
+            <span style="color:red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.stories.label }}<br>
+            {{ form.stories(size=32) }}
+            {% for error in form.stories.errors %}
+            <span style="color:red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.parking.label }}<br>
+            {{ form.parking(size=32) }}
+            {% for error in form.parking.errors %}
+            <span style="color:red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.mainroad.label }}
+            {{ form.mainroad() }}
+            {% for error in form.mainroad.errors %}
+            <span style="color:red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.guestroom.label }}
+            {{ form.guestroom() }}
+            {% for error in form.guestroom.errors %}
+            <span style="color:red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.basement.label }}
+            {{ form.basement() }}
+            {% for error in form.basement.errors %}
+            <span style="color:red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.hotwaterheating.label }}
+            {{ form.hotwaterheating() }}
+            {% for error in form.hotwaterheating.errors %}
+            <span style="color:red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.airconditioning.label }}
+            {{ form.airconditioning() }}
+            {% for error in form.airconditioning.errors %}
+            <span style="color:red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.prefarea.label }}
+            {{ form.prefarea() }}
+            {% for error in form.prefarea.errors %}
+            <span style="color:red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.furnishing_status.label }}<br>
+            {% for subfield in form.furnishing_status %}
+        <div>
+            {{ subfield }} {{ subfield.label.text }}
+        </div>
+        {% endfor %}
+        {% for error in form.furnishing_status.errors %}
         <span style="color:red">[{{ error }}]</span>
         {% endfor %}
-    </p>
+        </p>
 
-    <p>
-        {{ form.bedrooms.label }}<br>
-        {{ form.bedrooms(size=32) }}
-        {% for error in form.bedrooms.errors %}
-        <span style="color:red">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-
-    <p>
-        {{ form.bathrooms.label }}<br>
-        {{ form.bathrooms(size=32) }}
-        {% for error in form.bathrooms.errors %}
-        <span style="color:red">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-
-    <p>
-        {{ form.stories.label }}<br>
-        {{ form.stories(size=32) }}
-        {% for error in form.stories.errors %}
-        <span style="color:red">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-
-    <p>
-        {{ form.parking.label }}<br>
-        {{ form.parking(size=32) }}
-        {% for error in form.parking.errors %}
-        <span style="color:red">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-
-    <p>
-        {{ form.mainroad.label }}<br>
-        {{ form.mainroad() }}
-        {% for error in form.mainroad.errors %}
-        <span style="color:red">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-
-    <p>
-        {{ form.guestroom.label }}<br>
-        {{ form.guestroom() }}
-        {% for error in form.guestroom.errors %}
-        <span style="color:red">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-
-    <p>
-        {{ form.basement.label }}<br>
-        {{ form.basement() }}
-        {% for error in form.basement.errors %}
-        <span style="color:red">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-
-    <p>
-        {{ form.hotwaterheating.label }}<br>
-        {{ form.hotwaterheating() }}
-        {% for error in form.hotwaterheating.errors %}
-        <span style="color:red">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-
-    <p>
-        {{ form.airconditioning.label }}<br>
-        {{ form.airconditioning() }}
-        {% for error in form.airconditioning.errors %}
-        <span style="color:red">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-
-    <p>
-        {{ form.prefarea.label }}<br>
-        {{ form.prefarea() }}
-        {% for error in form.prefarea.errors %}
-        <span style="color:red">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-
-    <p>
-        {{ form.furnishing_status.label }}<br>
-        {% for subfield in form.furnishing_status %}
-    <div>
-        {{ subfield }} {{ subfield.label.text }}
-    </div>
-    {% endfor %}
-    {% for error in form.furnishing_status.errors %}
-    <span style="color:red">[{{ error }}]</span>
-    {% endfor %}
-    </p>
-
-    <p>
-        {{ form.submit() }}
-    </p>
-</form>
+        <p>
+            {{ form.submit() }}
+        </p>
+    </form>
+</div>
 
 {% endblock %}

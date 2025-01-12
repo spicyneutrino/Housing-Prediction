@@ -4,12 +4,11 @@ from wtforms.validators import DataRequired
 
 
 class LoginForm(FlaskForm):
-    area = StringField("House Area")
-    area = StringField("House Area")
-    bedrooms = StringField("Number of Bedrooms")
-    bathrooms = StringField("Number of Bathrooms")
-    stories = StringField("Number of Stories")
-    parking = StringField("Parking Spaces")
+    area = StringField("House Area", validators=[DataRequired()])
+    bedrooms = StringField("Number of Bedrooms", validators=[DataRequired()])
+    bathrooms = StringField("Number of Bathrooms", validators=[DataRequired()])
+    stories = StringField("Number of Stories", validators=[DataRequired()])
+    parking = StringField("Parking Spaces", validators=[DataRequired()])
     mainroad = BooleanField("Main Road Access")
     guestroom = BooleanField("Guestroom Available")
     basement = BooleanField("Basement Available")
@@ -24,13 +23,12 @@ class LoginForm(FlaskForm):
             ("unfurnished", "Unfurnished"),
         ],
         default="unfurnished",
+        validators=[DataRequired()],
     )
-    submit = SubmitField('Predict')
+    submit = SubmitField("Predict")
 
-    # num__area', 'cat_ordinal__bedrooms', 'cat_ordinal__bathrooms',
-    #    'cat_ordinal__stories', 'cat_ordinal__parking',
-    #    'cat_onehot__mainroad_yes', 'cat_onehot__guestroom_yes',
-    #    'cat_onehot__basement_yes', 'cat_onehot__hotwaterheating_yes',
-    #    'cat_onehot__airconditioning_yes', 'cat_onehot__prefarea_yes',
-    #    'cat_onehot__furnishingstatus_semi-furnished',
-    #    'cat_onehot__furnishingstatus_unfurnished'],
+#     X.columns
+# Index(['area', 'bedrooms', 'bathrooms', 'stories', 'mainroad', 'guestroom',
+#        'basement', 'hotwaterheating', 'airconditioning', 'parking', 'prefarea',
+#        'furnishingstatus'],
+#       dtype='object')

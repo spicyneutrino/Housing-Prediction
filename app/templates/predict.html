@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="price-container">
+    <h2>Predicted House Price</h2>
+    <div class="predicted-price">
+        ${{ "{:,.2f}".format(price) }}
+    </div>
+</div>
+{% endblock %}

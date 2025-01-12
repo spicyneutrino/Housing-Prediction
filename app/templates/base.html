@@ -5,23 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
 <body>
-    <div>Housing Price Prediction
+    <nav>Housing Price Prediction
         <a href="{{  url_for('index') }}">Home</a>
-    </div>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul>
-        {% for message in messages %}
-        <li>{{message}}</li>
+    </nav>
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="flash-message {{ category }}">
+            {{ message }}
+        </div>
         {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
-    {% block content %} {% endblock %}
+        {% endif %}
+        {% endwith %}
 
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 
 </html>
